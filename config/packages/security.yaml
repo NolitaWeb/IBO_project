@@ -40,4 +40,5 @@ security:
         - { path: ^/association/new, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/volunteer, roles: ROLE_ADMIN }
         - { path: ^/association, roles: ROLE_ADMIN }
+        - { path: ^/, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         # - { path: ^/profile, roles: ROLE_USER }
