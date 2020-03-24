@@ -1,0 +1,59 @@
+{{ form_start(form) }}
+    <div class="row">
+        <div class="col-lg-12 mb-12 mb-lg-0">
+            <div class="card">
+                <div class="card-body">
+                    <blockquote class="blockquote mb-0">
+                        <div class="row">
+                            <div class="col-12 col-md-12"><b>Anagrafica</b></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-md-6">Nome associazione<br> {{ form_widget(form.name) }}</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-md-6">Indirizzo <br>{{ form_widget(form.address) }}</div>
+                            <div class="col-12 col-md-6">Città <br>{{ form_widget(form.municipality) }}</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-md-6">Provincia <br>{{ form_widget(form.country, { 'attr': {'style': 'width: 255px;'} }) }}</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-md-6">Telefono <br>{{ form_widget(form.phone) }}</div>
+                            <div class="col-12 col-md-6">Email <br>{{ form_widget(form.email) }}</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-md-6">Note di contatto <br>{{ form_widget(form.contactNotes) }}</div>
+                            <div class="col-12 col-md-6">Sito web <br>{{ form_widget(form.website) }}</div>
+                        </div>
+                    </blockquote>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-12 mb-12 mb-lg-0">
+            <div class="card">
+                <div class="card-body">
+                    <blockquote class="blockquote mb-0">
+                        <div class="row">
+                            <div class="col-12 col-md-12"><b>Servizi</b></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-md-6">Destinatari dei servizi <br>{{ form_widget(form.serviceUsers) }}</div>
+                            <div class="col-12 col-md-6">Servizi offerti <br>
+                                {{ form_widget(form.service, { 'attr': {'style': 'width: 255px;'} }) }}
+                                <div id="otherService">
+                                    Altri servizi <br>
+                                    {{ form_widget(form.otherService, { 'attr': {'style': 'width: 255px;'} }) }}
+                                </div>
+                            </div>
+                        </div>
+                    </blockquote>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 col-md-12 text-center">
+          <button class="button" style="width: 350px; font-size: 22px;"><b>REGISTRAMI</b></button>
+        </div>
+      </div>
+{{ form_end(form) }}

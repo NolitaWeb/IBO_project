@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New AssociationType{% endblock %}
+
+{% block body %}
+    <h1>Create new AssociationType</h1>
+
+    {{ include('association_type/_form.html.twig') }}
+
+    <a href="{{ path('association_type_index') }}">back to list</a>
+{% endblock %}

@@ -1,0 +1,106 @@
+{{ form_start(form) }}
+    <div class="row">
+        <div class="col-lg-7 mb-7 mb-lg-0">
+            <div class="card">
+                <div class="card-body">
+                    <blockquote class="blockquote mb-0">
+                        <div><b>Dati anagrafici</b></div>
+                        <div class="row">
+                            <div class="col-12 col-md-6">Nome<br> {{ form_widget(form.name) }}</div>
+                            <div class="col-12 col-md-6">Cognome<br> {{ form_widget(form.lastname) }}</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-md-12">Nato il<br>{{ form_widget(form.birthday) }}</div>
+                        </div>
+                        <div><b>Residenza o domicilio</b></div>
+                        <div class="row">
+                            <div class="col-12 col-md-6">Indirizzo <br>{{ form_widget(form.address) }}</div>
+                            <div class="col-12 col-md-6">Cap <br>{{ form_widget(form.zipcode) }}</div>
+                            <div class="col-12 col-md-6">Città <br>{{ form_widget(form.city) }}</div>
+                            <div class="col-12 col-md-6">Provincia <br>{{ form_widget(form.country) }}</div>
+                        </div>
+                        <div><b>Contatti</b></div>
+                        <div class="row">
+                            <div class="col-12 col-md-6">Telefono <br>{{ form_widget(form.phone) }}</div>
+                            <div class="col-12 col-md-6">Email <br>{{ form_widget(form.email) }}</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-md-6"><b>Automunito</b> {{ form_widget(form.carOwner) }}</div>
+                        </div>
+                    </blockquote>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-5 mb-5 mb-lg-0">
+            <div class="card">
+                <div class="card-body">
+                    <blockquote class="blockquote mb-0">
+                        <div class="text-center"><b>Disponibilità</b></div>
+                        <div>
+                            {% for singleavaiabilityform in form.availabilityForm %}
+                            <div>
+                                <div class="row">
+                                    <div class="col-12 col-md-6">{{ form_widget(singleavaiabilityform.monday) }} Lunedì </div>
+                                    <div class="col-12 col-md-6">{{ form_widget(singleavaiabilityform.mondaystart, { 'attr': {'class': 'fullinput','placeholder': 'Fascia oraria...'} }) }}</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 col-md-6">{{ form_widget(singleavaiabilityform.thuesday) }} Martedì </div>
+                                    <div class="col-12 col-md-6">{{ form_widget(singleavaiabilityform.thuesdaystart, { 'attr': {'class': 'fullinput','placeholder': 'Fascia oraria...'} }) }}</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 col-md-6">{{ form_widget(singleavaiabilityform.wednesday) }} Mercoledì </div>
+                                    <div class="col-12 col-md-6">{{ form_widget(singleavaiabilityform.wednesdaystart, { 'attr': {'class': 'fullinput','placeholder': 'Fascia oraria...'} }) }}</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 col-md-6">{{ form_widget(singleavaiabilityform.thursday) }} Giovedì </div>
+                                    <div class="col-12 col-md-6">{{ form_widget(singleavaiabilityform.thursdaystart, { 'attr': {'class': 'fullinput','placeholder': 'Fascia oraria...'} }) }}</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 col-md-6">{{ form_widget(singleavaiabilityform.friday) }} Venerdì </div>
+                                    <div class="col-12 col-md-6">{{ form_widget(singleavaiabilityform.fridaystart, { 'attr': {'class': 'fullinput','placeholder': 'Fascia oraria...'} }) }}</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 col-md-6">{{ form_widget(singleavaiabilityform.saturday) }} Sabato </div>
+                                    <div class="col-12 col-md-6"> {{ form_widget(singleavaiabilityform.saturdaystart, { 'attr': {'class': 'fullinput','placeholder': 'Fascia oraria...'} }) }}</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 col-md-6">{{ form_widget(singleavaiabilityform.sunday) }} Domenica </div>
+                                    <div class="col-12 col-md-6">{{ form_widget(singleavaiabilityform.sundaystart, { 'attr': {'class': 'fullinput','placeholder': 'Fascia oraria...'} }) }}</div>
+                                </div>
+                            </div>
+                            <div class="text-center">
+                                <div><b>Periodo di disponibilità</b></div>
+                                {{ form_widget(form.inception) }}
+                                {{ form_widget(form.expiry) }}
+                            </div>
+                        {% endfor %}
+                        </div>
+                        
+                    </blockquote>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12 mb-12 mb-lg-0">
+            <div class="card">
+                <div class="card-body">
+                    <blockquote class="blockquote mb-0">
+                        <div><b>Disponibile per:</b></div>
+                        <div class="row">
+                            <div class="col-12 col-md-6">{{ form_widget(form.delivery) }} Consegna a domicilio di prodotti alimentari</div>
+                            <div class="col-12 col-md-6">{{ form_widget(form.babySitting) }} Servizio baby sitter per operatori sanitari</div>
+                            <div class="col-12 col-md-12">{{ form_widget(form.drugDelivery) }} Consegna a domicilio di farmaci</div>
+                            <div class="col-12 col-md-12"><b>Note:</b><br> {{ form_widget(form.note) }}</div>
+                        </div>
+                    </blockquote>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 col-md-12 text-center">
+          <button class="button" style="width: 350px; font-size: 22px;"><b>REGISTRAMI</b></button>
+        </div>
+      </div>
+{{ form_end(form) }}

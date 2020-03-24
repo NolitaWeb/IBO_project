@@ -1,12 +1,141 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-    </body>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  {% block title %}<title>Sportami a casa</title>{% endblock %}
+  {% block stylesheets %}
+    <link href="{{ asset('vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <style>
+      .button {
+        background-color: #F39322;
+        border: none;
+        color: white;
+        width: 100%;
+        padding-top: 15px;
+        padding-bottom: 32px;
+        margin-top: 5%;
+        margin-bottom: 5%;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+      }
+      .card {
+        background-color: #f0f9fc !important;
+      }
+      .section__checkboxes {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        grid-column-gap: 2em;
+      }
+      .inline {
+        display: inline;
+      }
+      .fullinput {
+        width: 100%;
+      }
+    </style>
+    <link href="{{ asset('css/freelancer.min.css') }}" rel="stylesheet">
+  {% endblock %}
+</head>
+
+
+
+<body id="page-top">
+  {% block navbar %}
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand js-scroll-trigger" href="#page-top"><img src="{{ asset('image/sportami_a_casa.png') }}" width="40%"></a>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <img src="{{ asset('image/logoibo.png') }}" width="40%">        
+      </div>
+    </div>
+  </nav>
+  {% endblock %}
+  
+  {% block body %}
+  {% endblock %}
+
+  {% block footer %}
+  <footer class="footer text-center bg-secondary">
+    <div class="container">
+      <div class="row">
+
+        <!-- Footer Location -->
+        <div class="col-lg-4 mb-5 mb-lg-0">
+          <img src="{{ asset('image/logoibo.png') }}" width="40%">
+          <p>IBO Italia/ONLUS
+          <br>Via Boschetto 1
+          <br>44124 Ferrara
+          <br>Via Boschetto 1
+          0532 098508/096509</p>
+        </div>
+
+        <!-- Footer Social Icons -->
+        <div class="col-lg-4 mb-5 mb-lg-0">
+          <p>info@iboitalia.org
+          <br>iboitalia@pcert.postecert.it
+          <br>www.iboitalia.eu
+          <br>Cod. Fisc. 90500750154</p>
+        </div>
+
+        <!-- Footer About Text -->
+        <div class="col-lg-4">
+          <h6 class="text-uppercase mb-4">Follow us</h6>
+          <a class="btn btn-outline-light btn-social mx-1" href="#">
+            <i class="fab fa-fw fa-facebook-f"></i>
+          </a>
+          <a class="btn btn-outline-light btn-social mx-1" href="#">
+            <i class="fab fa-fw fa-twitter"></i>
+          </a>
+          <a class="btn btn-outline-light btn-social mx-1" href="#">
+            <i class="fab fa-fw fa-linkedin-in"></i>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- Copyright Section -->
+  <section class="copyright py-4 text-center text-white">
+    <div class="container">
+      <small>Copyright &copy; IBO Italia 2020</small>
+    </div>
+  </section>
+
+  <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
+  <div class="scroll-to-top d-lg-none position-fixed ">
+    <a class="js-scroll-trigger d-block text-center text-white rounded" href="#page-top">
+      <i class="fa fa-chevron-up"></i>
+    </a>
+  </div>
+  {% endblock %}
+  {% block JavaScript %}
+  <!-- Bootstrap core JavaScript -->
+  <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
+  <script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+
+  <!-- Plugin JavaScript -->
+  <script src="{{ asset('vendor/jquery-easing/jquery.easing.min.js') }}"></script>
+
+  <!-- Contact Form JavaScript -->
+  <script src="{{ asset('js/jqBootstrapValidation.js') }}"></script>
+  <script src="{{ asset('js/contact_me.js') }}"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="{{ asset('js/freelancer.min.js') }}"></script>
+  {% endblock %}
+</body>
+
 </html>

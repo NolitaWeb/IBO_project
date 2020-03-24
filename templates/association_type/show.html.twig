@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}AssociationType{% endblock %}
+
+{% block body %}
+    <h1>AssociationType</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ association_type.id }}</td>
+            </tr>
+            <tr>
+                <th>TypeName</th>
+                <td>{{ association_type.typeName }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('association_type_index') }}">back to list</a>
+
+    <a href="{{ path('association_type_edit', {'id': association_type.id}) }}">edit</a>
+
+    {{ include('association_type/_delete_form.html.twig') }}
+{% endblock %}

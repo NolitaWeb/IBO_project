@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Diventa Volontario!{% endblock %}
+
+{% block body %}
+
+  <header class="masthead bg-primary">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-md-12 text-center">
+          <button class="button" style="width: 350px; font-size: 22px;"><b>DIVENTO VOLONTARIO PER...</b></button>
+        </div>
+      </div>
+      {{ include('volunteer/_form.html.twig') }}
+
+    </div>
+  </header>
+{% endblock %}

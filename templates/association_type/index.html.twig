@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}AssociationType index{% endblock %}
+
+{% block body %}
+    <h1>AssociationType index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>TypeName</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for association_type in association_types %}
+            <tr>
+                <td>{{ association_type.id }}</td>
+                <td>{{ association_type.typeName }}</td>
+                <td>
+                    <a href="{{ path('association_type_show', {'id': association_type.id}) }}">show</a>
+                    <a href="{{ path('association_type_edit', {'id': association_type.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('association_type_new') }}">Create new</a>
+{% endblock %}

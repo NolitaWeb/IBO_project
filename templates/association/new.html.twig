@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Candidatura associazioni{% endblock %}
+
+{% block body %}
+<header class="masthead bg-primary">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-md-12 text-center">
+          <button class="button" style="width: 350px; font-size: 22px;"><b>CANDIDATURA ASSOCIAZIONI</b></button>
+        </div>
+      </div>
+    
+    {{ include('association/_form.html.twig') }}
+    </div>
+</header>
+{% endblock %}

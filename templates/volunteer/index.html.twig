@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Volunteer index{% endblock %}
+
+{% block body %}
+    <h1>Volunteer index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Lastname</th>
+                <th>Name</th>
+                <th>Birthday</th>
+                <th>Address</th>
+                <th>Zipcode</th>
+                <th>City</th>
+                <th>Phone</th>
+                <th>Email</th>
+                <th>CarOwner</th>
+                <th>Inception</th>
+                <th>Expiry</th>
+                <th>Delivery</th>
+                <th>BabySitting</th>
+                <th>Note</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for volunteer in volunteers %}
+            <tr>
+                <td>{{ volunteer.id }}</td>
+                <td>{{ volunteer.lastname }}</td>
+                <td>{{ volunteer.name }}</td>
+                <td>{{ volunteer.birthday ? volunteer.birthday|date('Y-m-d') : '' }}</td>
+                <td>{{ volunteer.address }}</td>
+                <td>{{ volunteer.zipcode }}</td>
+                <td>{{ volunteer.city }}</td>
+                <td>{{ volunteer.phone }}</td>
+                <td>{{ volunteer.email }}</td>
+                <td>{{ volunteer.carOwner ? 'Yes' : 'No' }}</td>
+                <td>{{ volunteer.inception ? volunteer.inception|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ volunteer.expiry ? volunteer.expiry|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ volunteer.delivery ? 'Yes' : 'No' }}</td>
+                <td>{{ volunteer.babySitting ? 'Yes' : 'No' }}</td>
+                <td>{{ volunteer.note }}</td>
+                <td>
+                    <a href="{{ path('volunteer_show', {'id': volunteer.id}) }}">show</a>
+                    <a href="{{ path('volunteer_edit', {'id': volunteer.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="16">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('volunteer_new') }}">Create new</a>
+{% endblock %}
