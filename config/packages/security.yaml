@@ -38,6 +38,7 @@ security:
         - { path: ^/admin/user, roles: ROLE_SUPERADMIN }
         - { path: ^/volunteer/new, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/association/new, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/association/index, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/volunteer, roles: ROLE_ADMIN }
         - { path: ^/association, roles: ROLE_ADMIN }
         - { path: ^/, roles: IS_AUTHENTICATED_ANONYMOUSLY }

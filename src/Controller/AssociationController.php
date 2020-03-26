@@ -16,12 +16,15 @@ use Symfony\Component\Routing\Annotation\Route;
 class AssociationController extends AbstractController
 {
     /**
-     * @Route("/", name="association_index", methods={"GET"})
+     * @Route("/index", name="association_index", methods={"GET"})
      */
-    public function index(AssociationRepository $associationRepository): Response
+    public function index(AssociationRepository $associationRepository, Request $request): Response
     {
         return $this->render('association/index.html.twig', [
-            'associations' => $associationRepository->findAll(),
+            'associationsDelivery' => $associationRepository->findBy(['service' => '1','country' => $request->request->get('country')]),
+            'associationsDrug' => $associationRepository->findBy(['service' => '2','country' => $request->request->get('country')]),
+            'associationsBabySitter' => $associationRepository->findBy(['service' => '3','country' => $request->request->get('country')]),
+            'associationsOther' => $associationRepository->findBy(['service' => '4','country' => $request->request->get('country')]),
         ]);
     }
 

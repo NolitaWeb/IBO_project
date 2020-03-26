@@ -3,33 +3,34 @@
 {% block title %}Volunteer index{% endblock %}
 
 {% block body %}
+    <header class="masthead">
+    <div class="container">
     <h1>Volunteer index</h1>
 
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Lastname</th>
-                <th>Name</th>
-                <th>Birthday</th>
-                <th>Address</th>
-                <th>Zipcode</th>
-                <th>City</th>
-                <th>Phone</th>
+                <th>Cognome</th>
+                <th>Nome</th>
+                <th>Data di nascita</th>
+                <th>Indirizzo</th>
+                <th>Cap</th>
+                <th>Città</th>
+                <th>Telefono</th>
                 <th>Email</th>
-                <th>CarOwner</th>
-                <th>Inception</th>
-                <th>Expiry</th>
-                <th>Delivery</th>
+                <th>Automunito</th>
+                <th>Inizio disponibilità</th>
+                <th>Fine disponibilità</th>
+                <th>Consegna spesa</th>
+                <th>Consegna farmaci</th>
                 <th>BabySitting</th>
                 <th>Note</th>
-                <th>actions</th>
+                <th>azioni</th>
             </tr>
         </thead>
         <tbody>
         {% for volunteer in volunteers %}
             <tr>
-                <td>{{ volunteer.id }}</td>
                 <td>{{ volunteer.lastname }}</td>
                 <td>{{ volunteer.name }}</td>
                 <td>{{ volunteer.birthday ? volunteer.birthday|date('Y-m-d') : '' }}</td>
@@ -38,11 +39,12 @@
                 <td>{{ volunteer.city }}</td>
                 <td>{{ volunteer.phone }}</td>
                 <td>{{ volunteer.email }}</td>
-                <td>{{ volunteer.carOwner ? 'Yes' : 'No' }}</td>
+                <td>{{ volunteer.carOwner ? 'Sì' : 'No' }}</td>
                 <td>{{ volunteer.inception ? volunteer.inception|date('Y-m-d H:i:s') : '' }}</td>
                 <td>{{ volunteer.expiry ? volunteer.expiry|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ volunteer.delivery ? 'Yes' : 'No' }}</td>
-                <td>{{ volunteer.babySitting ? 'Yes' : 'No' }}</td>
+                <td>{{ volunteer.delivery ? 'Sì' : 'No' }}</td>
+                <td>{{ volunteer.drugDelivery ? 'Sì' : 'No' }}</td>
+                <td>{{ volunteer.babySitting ? 'Sì' : 'No' }}</td>
                 <td>{{ volunteer.note }}</td>
                 <td>
                     <a href="{{ path('volunteer_show', {'id': volunteer.id}) }}">show</a>
@@ -56,6 +58,6 @@
         {% endfor %}
         </tbody>
     </table>
-
-    <a href="{{ path('volunteer_new') }}">Create new</a>
+    </div>
+    </header>
 {% endblock %}
