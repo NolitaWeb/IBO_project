@@ -13,7 +13,27 @@
     <link href="{{ asset('vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
+    <script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('vendor/jquery-easing/jquery.easing.min.js') }}"></script>
+
     <style>
+      @media screen and (max-width: 600px) {
+        .only-desktop {
+          display: none !important;
+        }
+        .only-mobile {
+          display: block !important;
+        }
+      }
+      @media screen and (min-width: 600px) {
+        .only-desktop {
+          display: block !important;
+        }
+        .only-mobile {
+          display: none !important;
+        }
+      }
       .button {
         background-color: #F39322;
         border: none;
@@ -28,6 +48,22 @@
         display: inline-block;
         font-size: 16px;
       }
+
+      .button-2 {
+        background-color: #F39322;
+        border: none;
+        color: white;
+        width: 80%;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        margin-top: 5%;
+        margin-bottom: 5%;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 22px;
+      }
+
       .card {
         background-color: #f0f9fc !important;
       }
@@ -125,13 +161,6 @@
   </div>
   {% endblock %}
   {% block JavaScript %}
-    <!-- Bootstrap core JavaScript -->
-    <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
-    <script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-
-    <!-- Plugin JavaScript -->
-    <script src="{{ asset('vendor/jquery-easing/jquery.easing.min.js') }}"></script>
-
     <!-- Contact Form JavaScript -->
     <script src="{{ asset('js/jqBootstrapValidation.js') }}"></script>
     <script src="{{ asset('js/contact_me.js') }}"></script>
@@ -139,6 +168,7 @@
     <!-- Custom scripts for this template -->
     <script src="{{ asset('js/freelancer.min.js') }}"></script>
     <script src="{{ asset('js/jquery.rwdImageMaps.min.js') }}"></script>
+    <!-- Bootstrap core JavaScript -->
     <script>
       $('img[usemap]').rwdImageMaps();
       $(document).ready(function(e) {

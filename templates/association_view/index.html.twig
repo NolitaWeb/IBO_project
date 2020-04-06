@@ -1,20 +1,55 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello AssociationViewController!{% endblock %}
+{% block title %}Volunteer index{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+    <header class="masthead">
+    <div class="container">
+    <h1>Volunteer index</h1>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/var/www/html/ibo_project/src/Controller/AssociationViewController.php'|file_link(0) }}">src/Controller/AssociationViewController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/var/www/html/ibo_project/templates/association_view/index.html.twig'|file_link(0) }}">templates/association_view/index.html.twig</a></code></li>
-    </ul>
-</div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Indirizzo</th>
+                <th>Comune</th>
+                <th>Provincia</th>
+                <th>Telefono</th>
+                <th>Note di contatto</th>
+                <th>Sito internet</th>
+                <th>Email</th>
+                <th>Destinatari</th>
+                <th>Servizio</th>
+                <th>Altri servizi</th>
+                <th>azioni</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for association in associations %}
+            <tr>
+                <td>{{ association.name }}</td>
+                <td>{{ association.address }}</td>
+                <td>{{ association.municipality }}</td>
+                <td>{{ association.country }}</td>
+                <td>{{ association.phone }}</td>
+                <td>{{ association.contactNotes }}</td>
+                <td>{{ association.website }}</td>
+                <td>{{ association.email }}</td>
+                <td>{{ association.serviceUsers }}</td>
+                <td>{{ association.service }}</td>
+                <td>{{ association.otherService }}</td>
+                <td>
+                    <a href="{{ path('association_show', {'id': association.id}) }}">show</a>
+                    <a href="{{ path('association_edit', {'id': association.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="16">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    </div>
+    </header>
 {% endblock %}

@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ShopType index{% endblock %}
+
+{% block body %}
+    <h1>ShopType index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>TypeName</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for shop_type in shop_types %}
+            <tr>
+                <td>{{ shop_type.id }}</td>
+                <td>{{ shop_type.typeName }}</td>
+                <td>
+                    <a href="{{ path('shop_type_show', {'id': shop_type.id}) }}">show</a>
+                    <a href="{{ path('shop_type_edit', {'id': shop_type.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('shop_type_new') }}">Create new</a>
+{% endblock %}

@@ -33,6 +33,11 @@ class Country
      */
     private $volunteers;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Shop", mappedBy="country")
+     */
+    private $shops;
+
     public function __toString()
     {
         return $this->countryName;
@@ -42,6 +47,7 @@ class Country
     {
         $this->associations = new ArrayCollection();
         $this->volunteers = new ArrayCollection();
+        $this->shops = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -117,6 +123,37 @@ class Country
             // set the owning side to null (unless already changed)
             if ($volunteer->getCountry() === $this) {
                 $volunteer->setCountry(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Shop[]
+     */
+    public function getShops(): Collection
+    {
+        return $this->shops;
+    }
+
+    public function addShop(Shop $shop): self
+    {
+        if (!$this->shops->contains($shop)) {
+            $this->shops[] = $shop;
+            $shop->setCountry($this);
+        }
+
+        return $this;
+    }
+
+    public function removeShop(Shop $shop): self
+    {
+        if ($this->shops->contains($shop)) {
+            $this->shops->removeElement($shop);
+            // set the owning side to null (unless already changed)
+            if ($shop->getCountry() === $this) {
+                $shop->setCountry(null);
             }
         }
 

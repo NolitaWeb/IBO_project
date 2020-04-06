@@ -3,8 +3,12 @@
 namespace App\Controller;
 
 use App\Entity\Association;
+use App\Entity\Shop;
+use App\Entity\ShopType;
 use App\Form\AssociationType;
 use App\Repository\AssociationRepository;
+use App\Repository\ShopRepository;
+use App\Repository\ShopTypeRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -18,13 +22,27 @@ class AssociationController extends AbstractController
     /**
      * @Route("/index", name="association_index", methods={"GET"})
      */
-    public function index(AssociationRepository $associationRepository, Request $request): Response
+    public function index(ShopTypeRepository $shopTypeRepository, ShopRepository $shopRepository, AssociationRepository $associationRepository, Request $request): Response
     {
         return $this->render('association/index.html.twig', [
-            'associationsDelivery' => $associationRepository->findBy(['service' => '1','country' => $request->request->get('country')]),
-            'associationsDrug' => $associationRepository->findBy(['service' => '2','country' => $request->request->get('country')]),
-            'associationsBabySitter' => $associationRepository->findBy(['service' => '3','country' => $request->request->get('country')]),
-            'associationsOther' => $associationRepository->findBy(['service' => '4','country' => $request->request->get('country')]),
+            'associationsDelivery' => $associationRepository->findBy(['service' => '1','country' => $request->query->get('country')]),
+            'associationsDrug' => $associationRepository->findBy(['service' => '2','country' => $request->query->get('country')]),
+            'associationsBabySitter' => $associationRepository->findBy(['service' => '3','country' => $request->query->get('country')]),
+            'associationsOther' => $associationRepository->findBy(['service' => '4','country' => $request->query->get('country')]),
+            'shop' => $shopRepository->findBy(['country' => $request->query->get('country')]),
+            'shopLegend' => $shopTypeRepository->findAll()
+        ]);
+    }
+
+    /**
+     * @Route("/list", name="association_list", methods={"GET"})
+     */
+    public function list(ShopTypeRepository $shopTypeRepository, ShopRepository $shopRepository, AssociationRepository $associationRepository, Request $request): Response
+    {
+        return $this->render('association_view/index.html.twig', [
+            'associations' => $associationRepository->findAll(['service' => '4','country' => $request->query->get('country')]),
+            'shop' => $shopRepository->findAll(),
+            'shopLegend' => $shopTypeRepository->findAll()
         ]);
     }
 

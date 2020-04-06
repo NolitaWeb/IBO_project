@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ShopType{% endblock %}
+
+{% block body %}
+    <h1>ShopType</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ shop_type.id }}</td>
+            </tr>
+            <tr>
+                <th>TypeName</th>
+                <td>{{ shop_type.typeName }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('shop_type_index') }}">back to list</a>
+
+    <a href="{{ path('shop_type_edit', {'id': shop_type.id}) }}">edit</a>
+
+    {{ include('shop_type/_delete_form.html.twig') }}
+{% endblock %}
